@@ -1,0 +1,1 @@
+summon minecraft:item ~ ~ ~ {Item:{id:"minecraft:spyglass",Count:1b,tag:{GravityGlass:1.0f,display:{Name:'{"text":"Fragile Gravity Glass","color":"green"}',Lore:['{"text":"Right-click to change gravity towards"}','{"text":"the direction you are looking!"}','{"text":"(Breaks after one use!)"}']}}}}

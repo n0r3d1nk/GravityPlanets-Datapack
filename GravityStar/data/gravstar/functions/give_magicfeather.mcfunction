@@ -1,0 +1,1 @@
+summon minecraft:item ~ ~ ~ {Item:{id:"minecraft:feather",Count:1b,tag:{MagicFeather:1.0f,display:{Name:'{"text":"Magic Feather","color":"blue"}',Lore:['{"text":"Keep this in your inventory"}','{"text":"to prevent all fall damage!"}']}}}}
