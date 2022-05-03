@@ -4,11 +4,11 @@
 ## Installation
 1. You will need the Gravity Changer mod by by andrew_10__, from https://www.curseforge.com/minecraft/mc-mods/gravitychanger/
 2. Open minecraft, find your world save, and click **Edit > Open World Folder**
-3. Copy the "GravityStar" folder from this GitHub download into the "datapacks" folder in your World Folder
+3. Copy the "GravityStar" folder from this GitHub download into the "datapacks" folder in your World Folder  
 And that's it! When you load the world the datapack will automatically initialize and run itself.
 
 ## Crafting
-There are a few new items that can be "crafted" by dropping other items into a pile on the ground:
+There are a few new items that can be "crafted" by dropping the materials into a pile on the ground:
 - Magic Feather: Drop a feather with a chorus flower: Having it in your inventory makes you immune to fall damage
 - Fragile Gravity Glass: Drop a spyglass with a chorus flower: Use it to permamently change gravity into the direction you are looking (one time use!)
 - Ultimate Gravity Glass: Drop a Fragile Gravity Glass with a netherite ingot: Same as the Fragile Gravity Glass, but it has infinite uses
