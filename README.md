@@ -1,5 +1,5 @@
-# GravityStar
- Gravity Walls, Planets, and more! This is a datapack that adds lots more features to the Gravity Changer mod by by andrew_10__
+# Gravity Planets
+Gravity Walls, Planets, and more! This is a datapack that adds lots more features to the Gravity Changer mod by andrew_10__
 
 ## Installation
 1. You will need the Gravity Changer mod by by andrew_10__, from https://www.curseforge.com/minecraft/mc-mods/gravitychanger/
