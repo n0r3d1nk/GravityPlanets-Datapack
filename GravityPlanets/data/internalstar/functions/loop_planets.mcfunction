@@ -1,5 +1,5 @@
 
-# Create a planet: drop an emerald block (item) onto a diamond block (block)
+# Create a planet: drop an chorus flower (item) onto a redstone lamp (block)
 
 tag @e[type=minecraft:item,nbt={Item: {id: "minecraft:chorus_flower", Count: 1b}}] add GS_ChorusFlower
 execute as @e[type=minecraft:item,tag=GS_ChorusFlower] at @s if block ~ ~-0.5 ~ minecraft:redstone_lamp unless entity @e[type=armor_stand,tag=PlanetCore,distance=..2] run tag @s add PlanetCreateItem
@@ -9,6 +9,7 @@ kill @e[type=minecraft:item,tag=PlanetCreateItem]
 kill @e[type=minecraft:item_frame,tag=PlanetAlign]
 scoreboard players set @e[type=minecraft:armor_stand,tag=PlanetCoreInit] PlanetSize 0
 execute as @e[type=minecraft:armor_stand,tag=PlanetCoreInit] at @s run scoreboard players set @p PlanetSizeDelta 10
+execute as @e[type=minecraft:armor_stand,tag=PlanetCoreInit] run tag @e[tag=PlanetCoreEdit] remove PlanetCoreEdit
 tag @e[type=minecraft:armor_stand,tag=PlanetCoreInit] add PlanetCoreEdit
 tag @e[type=minecraft:armor_stand,tag=PlanetCoreInit] add PlanetCore
 tag @e[type=minecraft:armor_stand,tag=PlanetCoreInit] remove PlanetCoreInit
@@ -24,9 +25,10 @@ tag @a[tag=PlayerPlanetSizer] add PlayerPlanetMenu
 tag @a[tag=PlayerPlanetSizer] remove PlayerPlanetSizer
 
 
-# Display planet menu: drop a redstone block onto an planet's redstone_lamp
+# Display planet menu: drop a chorus flower onto an planet's redstone_lamp
 
 execute as @e[type=minecraft:item,tag=GS_ChorusFlower] at @s if block ~ ~-0.5 ~ minecraft:redstone_lamp if entity @e[type=armor_stand,tag=PlanetCore,distance=..1] unless entity @s[tag=PlanetEditItemFinished] run tag @s add PlanetEditItem
+tag @e[tag=PlanetCreateItem] remove PlanetEditItem
 execute as @e[type=minecraft:item,tag=PlanetEditItem] run tag @e[tag=PlanetCoreEdit] remove PlanetCoreEdit
 execute as @e[type=minecraft:item,tag=PlanetEditItem] at @s run tag @e[type=armor_stand,tag=PlanetCore,limit=1,sort=nearest] add PlanetCoreEdit
 execute as @e[type=minecraft:item,tag=PlanetEditItem] run tag @p add PlayerPlanetMenu

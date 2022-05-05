@@ -5,6 +5,8 @@ gamerule sendCommandFeedback false
 gamerule commandBlockOutput false
 scoreboard objectives add CurrGrav dummy
 scoreboard objectives add TargetGravFinal dummy
+scoreboard objectives add TargetGravDefault dummy
+scoreboard players set @a TargetGravDefault 0
 scoreboard objectives add TargetGravDelay dummy
 scoreboard players set @a TargetGravDelay 0
 
@@ -39,8 +41,8 @@ scoreboard objectives add PrevGravWallStick dummy
 scoreboard players set @a PrevGravWallStick -1
 scoreboard objectives add GravWallStickTimer dummy
 scoreboard players set @a GravWallStickTimer 0
-scoreboard objectives add GravBeforeStick dummy
-scoreboard players set @a GravBeforeStick -1
+scoreboard objectives add BlackHoleDamageTimer dummy
+scoreboard players set @a BlackHoleDamageTimer 0
 
 
 # Planets

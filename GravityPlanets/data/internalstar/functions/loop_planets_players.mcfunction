@@ -24,6 +24,10 @@ scoreboard players operation @s PlanetPosZNeg -= @s PlanetPosZ
 execute if score @s PlanetPosX > @e[tag=CurrPlanetCore,limit=1] PlanetSizeNeg if score @s PlanetPosX < @e[tag=CurrPlanetCore,limit=1] PlanetSize if score @s PlanetPosY > @e[tag=CurrPlanetCore,limit=1] PlanetSizeNeg if score @s PlanetPosY < @e[tag=CurrPlanetCore,limit=1] PlanetSize if score @s PlanetPosZ > @e[tag=CurrPlanetCore,limit=1] PlanetSizeNeg if score @s PlanetPosZ < @e[tag=CurrPlanetCore,limit=1] PlanetSize run tag @s add CurrPlanetPlayer
 
 
+# If the player is in range of the planet, set a placeholder value indicating that the planet "owns" the player's gravity
+# (if the player is on a cubical edge, neither planet gravity will apply. However, we do NOT want this to trigger default gravity)
+scoreboard players set @s[tag=CurrPlanetPlayer] TargetGravPlanet 99
+
 
 # Calculate the gravity of the player (ex: Gravity 2=North, so player is on the south side of the planet)
 # For any given axis A (with other axes B and C) the 4 planes to satsify are: A>B, A>-B, A>C, A>-C

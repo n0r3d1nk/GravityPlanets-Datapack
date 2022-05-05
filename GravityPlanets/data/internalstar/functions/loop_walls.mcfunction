@@ -38,12 +38,9 @@ execute as @a at @s if block ~ ~ ~0.3 minecraft:glow_lichen[down=true] run score
 
 # Cravity Wall: Sticky logic
 
-# Start touching a sticky wall: record gravity state before sticky wall was touched
-execute as @a[scores={TargetGravWallStick=0..5,PrevGravWallStick=-1}] run scoreboard players operation @s GravBeforeStick = @s CurrGrav
 # Stop touching a sticky wall: run timer for ending the sticky effect
 scoreboard players add @a[scores={TargetGravWallStick=-1,PrevGravWallStick=0..5}] GravWallStickTimer 1
-# Timer finishes: player is no longer attached to sticky wall, revert gravity to what it was before touching sticky wall (and reset the timer)
-execute as @a[scores={GravWallStickTimer=10..}] run scoreboard players operation @s TargetGravWallStick = @s GravBeforeStick
+# Timer finishes: player is no longer attached to sticky wall, reset the timer
 scoreboard players set @a[scores={GravWallStickTimer=10..}] PrevGravWallStick -1
 scoreboard players set @a[scores={PrevGravWallStick=-1}] GravWallStickTimer 0
 # Touching a sticky wall: record state for next tick, reset unstick timer to 0
@@ -155,3 +152,20 @@ execute as @a at @s[scores={CurrGrav=0}] if block ~-0.4 ~1 ~ minecraft:pink_glaz
 execute as @a at @s[scores={CurrGrav=1}] if block ~-0.4 ~-1 ~ minecraft:pink_glazed_terracotta run scoreboard players set @s TargetGravWallPush 5
 execute as @a at @s[scores={CurrGrav=2}] if block ~-0.4 ~ ~1 minecraft:pink_glazed_terracotta run scoreboard players set @s TargetGravWallPush 5
 execute as @a at @s[scores={CurrGrav=3}] if block ~-0.4 ~ ~-1 minecraft:pink_glazed_terracotta run scoreboard players set @a TargetGravWallPush 5
+
+
+
+
+# Black Stained Glass: Wither floor
+
+tag @a remove BlackHoleDamage
+execute as @a at @s[scores={CurrGrav=0}] if block ~ ~-0.1 ~ minecraft:black_stained_glass run tag @s add BlackHoleDamage
+execute as @a at @s[scores={CurrGrav=1}] if block ~ ~0.1 ~ minecraft:black_stained_glass run tag @s add BlackHoleDamage
+execute as @a at @s[scores={CurrGrav=2}] if block ~ ~ ~-0.1 minecraft:black_stained_glass run tag @s add BlackHoleDamage
+execute as @a at @s[scores={CurrGrav=3}] if block ~ ~ ~0.1 minecraft:black_stained_glass run tag @s add BlackHoleDamage
+execute as @a at @s[scores={CurrGrav=4}] if block ~-0.1 ~ ~ minecraft:black_stained_glass run tag @s add BlackHoleDamage
+execute as @a at @s[scores={CurrGrav=5}] if block ~0.1 ~ ~ minecraft:black_stained_glass run tag @s add BlackHoleDamage
+
+scoreboard players remove @a[scores={BlackHoleDamageTimer=1..}] BlackHoleDamageTimer 1
+effect give @a[tag=BlackHoleDamage,scores={BlackHoleDamageTimer=..0}] minecraft:instant_damage 1 0 true
+scoreboard players set @a[tag=BlackHoleDamage,scores={BlackHoleDamageTimer=..0}] BlackHoleDamageTimer 10
